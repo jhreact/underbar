@@ -102,8 +102,7 @@ var _ = {};
   _.uniq = function(array) {
     var result = [];
     _.each(array, function(item) {
-      console.log(item);
-      if (! (item in result)) {
+      if (result.indexOf(item) === -1) {
         result.push(item);
       }
     });
