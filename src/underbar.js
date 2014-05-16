@@ -220,12 +220,13 @@ var _ = {};
   //     bla: "even more stuff"
   //   }); // obj1 now contains key1, key2, key3 and bla
   _.extend = function(obj) {
-    var obj1 = arguments[0];
-    for (var i=1; i < arguments.length ; i++) {
-      for (var prop in arguments[i]) {
-        obj1[prop] = arguments[i][prop];
+    var args = Array.prototype.slice.call(arguments);
+    var obj1 = args.shift();
+    _.each(args, function(arg) {
+      for (var prop in arg) {
+        obj1[prop] = arg[prop];
       }
-    }
+    });
     return obj1;
   };
 
