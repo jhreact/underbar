@@ -95,7 +95,6 @@ var _ = {};
     // TIP: see if you can re-use _.filter() here, without simply
     // copying code in and modifying it
     return _.filter(collection, function(x) { return !test(x); });
-
   };
 
   // Produce a duplicate-free version of the array.
@@ -186,6 +185,12 @@ var _ = {};
   // Determine whether all of the elements match a truth test.
   _.every = function(collection, iterator) {
     // TIP: Try re-using reduce() here.
+    return _.reduce(collection, function(isTrue, item) {
+      if (! isTrue) {
+        return false;
+      }
+      return iterator(item) && isTrue;
+    }, true);
   };
 
   // Determine whether any of the elements pass a truth test. If no iterator is
