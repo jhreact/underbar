@@ -189,7 +189,7 @@ var _ = {};
       if (! isTrue) {
         return false;
       }
-      return iterator(item) && isTrue;
+      return Boolean(iterator(item)) && isTrue;
     }, true);
   };
 
