@@ -186,9 +186,6 @@ var _ = {};
   _.every = function(collection, iterator) {
     // TIP: Try re-using reduce() here.
     return _.reduce(collection, function(isTrue, item) {
-      if (! isTrue) {
-        return false;
-      }
       return isTrue && Boolean(iterator ? iterator(item) : item);
     }, true);
   };
